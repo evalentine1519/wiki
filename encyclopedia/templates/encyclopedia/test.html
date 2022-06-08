@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    <h1>This is just a {{title}}</h1>
+
+    <ul>
+        {% for entry in entries %}
+			{% url 'entry' arg arg2 as stuff %}
+            <li><a href="{{ entry }}">{{ entry }}</a></li>
+        {% endfor %}
+    </ul>
+	
+	{{ test|safe }}
+
+{% endblock %}

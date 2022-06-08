@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+
+	<h1>Search results for: {{ title }}</h1>
+    
+	{% if exists %}
+		<ul>
+			{% for entry in entries %}
+				<li><a href="wiki/{{ entry }}">{{ entry }}</a></li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		There were no articles found matching your query.
+	{% endif %}
+
+{% endblock %}

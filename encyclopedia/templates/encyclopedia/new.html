@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+{{ error|safe }}
+
+<form action="{% url 'new' %}" method="post">
+    {% csrf_token %}
+    <label for="title">Please enter the title of the entry you wish to create:</label>
+    <br>
+    <input type="text" id="title" name="title" value="{{entry_title}}">
+    <br><br>
+    <label for="editor">Please enter the markdown content for the page you wish to create.</label>
+    <input type="submit" value="Submit">
+    <br><br>
+    <textarea id="editor" name="content">{{ content }}</textarea>
+</form>
+{% endblock %}
